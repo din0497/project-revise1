@@ -1,11 +1,20 @@
+import { useState } from "react";
 import { data } from "./data";
 import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept";
 import TabButton from "./components/TabButton";
+import TabContent from "./components/TabContent";
 
 function App() {
-  function clickHandler() {
-    console.log("clicked!");
+  const [selectedTopic, setSelectedTopic] = useState(false);
+  let tabContent = <p>Please select a topic!</p>;
+
+  if (selectedTopic) {
+    tabContent = <TabContent selectedTopic={selectedTopic} />;
+  }
+
+  function clickHandler(selectedButton) {
+    setSelectedTopic(selectedButton);
   }
 
   return (
@@ -23,11 +32,15 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={clickHandler}>Components</TabButton>
-            <TabButton onSelect={clickHandler}>JSX</TabButton>
-            <TabButton onSelect={clickHandler}>Props</TabButton>
-            <TabButton onSelect={clickHandler}>State</TabButton>
+            <TabButton onSelect={() => clickHandler("components")}>
+              Components
+            </TabButton>
+            <TabButton onSelect={() => clickHandler("jsx")}>JSX</TabButton>
+            <TabButton onSelect={() => clickHandler("props")}>Props</TabButton>
+            <TabButton onSelect={() => clickHandler("state")}>State</TabButton>
           </menu>
+
+          {tabContent}
         </section>
       </main>
     </div>
