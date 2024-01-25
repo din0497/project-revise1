@@ -20,8 +20,8 @@ export function Examples() {
   return (
     <section id="examples">
       <h2>Examples</h2>
-      <menu></menu>
       <Tab
+        buttonWrapper={'menu'}
         buttons={data.map((con) => (
           <TabButton
             isActive={selectedTopic}

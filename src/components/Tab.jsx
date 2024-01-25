@@ -1,7 +1,9 @@
-export default function Tab({ children, buttons }) {
-  return (
+export default function Tab({ children, buttons, buttonWrapper }) {
+    const ButtonWrapper = buttonWrapper
+    return (
     <>
-      <menu>{buttons}</menu>{children}
+      <ButtonWrapper>{buttons}</ButtonWrapper>
+      {children}
     </>
   );
 }
