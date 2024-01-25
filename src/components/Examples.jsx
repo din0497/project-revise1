@@ -2,6 +2,7 @@ import { data } from "../data";
 import TabContent from "./TabContent";
 import TabButton from "./TabButton";
 import { useState } from "react";
+import Tab from "./Tab";
 
 export function Examples() {
   const [selectedTopic, setSelectedTopic] = useState(false);
@@ -19,8 +20,9 @@ export function Examples() {
   return (
     <section id="examples">
       <h2>Examples</h2>
-      <menu>
-        {data.map((con) => (
+      <menu></menu>
+      <Tab
+        buttons={data.map((con) => (
           <TabButton
             isActive={selectedTopic}
             onSelect={() => clickHandler(con.title)}
@@ -29,9 +31,9 @@ export function Examples() {
             {con.title}
           </TabButton>
         ))}
-      </menu>
-
-      {tabContent}
+      >
+        {tabContent}
+      </Tab>
     </section>
   );
 }
