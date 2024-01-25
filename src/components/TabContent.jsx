@@ -1,12 +1,13 @@
 import { EXAMPLES } from "../data-with-examples";
 
-const TabContent = ({selectedTopic}) => {
+const TabContent = ({ selectedTopic }) => {
+  let topic = selectedTopic.toLowerCase();
   return (
     <div id="tab-content">
-      <h3>{EXAMPLES[selectedTopic].title}</h3>
-      <p>{EXAMPLES[selectedTopic].description}</p>
+      <h3>{EXAMPLES[topic].title}</h3>
+      <p>{EXAMPLES[topic].description}</p>
       <pre>
-        <code>{EXAMPLES[selectedTopic].code}</code>
+        <code>{EXAMPLES[topic].code}</code>
       </pre>
     </div>
   );

@@ -1,4 +1,6 @@
- const CoreConcept = ({ image, title, description }) => {
+const CoreConcept = ({title,image,description}) => {
+
+
   return (
     <li>
       <img src={image} alt="" />
@@ -8,4 +10,4 @@
   );
 };
 
-export default CoreConcept
+export default CoreConcept;
